@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="hero-bg">
+        <nav>
+            <h1 class="nav-logo"><a href="/Bread">Bread</a></h1>
+
+            <ul class="nav-links">
+                <li class="link"><a class="nav-link" href="/Team_Information">Team Information</a></li>
+                <li class="link"><a class="nav-link" href="/Standings">Standings</a></li>
+                <li class="link"><a class="nav-link" href="/Live_Events">Live Events</a></li>
+                <li class="link"><a class="nav-link" href="/About_Us">About Us</a></li>
+                <li class="link"><a class="nav-link" href="/baseball">Baseball</a></li>
+                <li class="link"><a class="nav-link" href="/soccer">Soccer</a></li>
+                <li class="link"><a class="nav-link" href="/hockey">Hockey</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="hero-text">
+            <h1 class="hero-heading">Welcome to Bread</h1>
+            <p class="hero-description">Explore the Excitement of Sports Leagues and Betting</p>
+            <a href="/login" class="btn">Login</a>
+        </div>
+    </div>
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h2>Team Stats</h2>
+            <table id="teamStatsTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>User's Bets</h2>
+            <table id="userBetsTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Bet ID</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Live Events</h2>
+            <table id="liveEventsTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>User Profile</h2>
+            <table id="userProfileTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="grid-column: span 2;">
+            <h2>Player Metrics</h2>
+            <table id="playerMetricsTable" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Score</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            function populatePlayerMetricsTable() {
+                fetch('/get_player_metrics')
+                    .then(response => response.json())
+                    .then(data => populateTable('playerMetricsTable', data))
+                    .catch(error => console.error('Error:', error));
+            }
+
+            window.onload = populatePlayerMetricsTable;
+        </script>
+            <div class="card" style="grid-column: span 2;">
+                    <h1>Calculate the Spread</h1>
+                    <form id="spreadForm">
+                    <label for="spread_favorite_input"><strong>Spread:</strong></label><br>
+                    <input type="text" id="spread_favorite_input" name="spread_favorite_input" required><br>
+                    <label for="favorite_team_input"><strong>Favorite Team:</label><br>
+                    <input type="text" id="favorite_team_input" name="favorite_team_input" required><br>
+                    <label for="underdog_input"><strong>Underdog Team:</strong></label><br>
+                    <input type="text" id="underdog_input" name="underdog_input" required><br>
+                    <label for="is_team_favorite_home"><strong>Is Favorite Team Home? (yes/no):</strong></label><br>
+                    <input type="text" id="is_team_favorite_home" name="is_team_favorite_home" required><br>
+                    <button id="runButton" type="button">Run</button>
+                </form>
+                <div id="spreadOutput"></div>
+            </div>
+
+
+        <div class="card" style="grid-column: span 2;">
+            <h1>Calculate Over Under</h1>
+            <form id="overUnderForm">
+                <label for="home_team">Home Team:</label><br>
+                <input type="text" id="home_team" name="home_team" required><br>
+                <label for="your_single_number">Your Single Number:</label><br>
+                <input type="text" id="your_single_number" name="your_single_number" required><br>
+                <button id="runOverUnderButton" type="button">Run</button>
+            </form>
+            <div id="overUnderOutput"></div>
+            </div>
+        </div>
+
+    <script>
+    document.getElementById('runButton').addEventListener('click', function() {
+        // Get form data
+        var spread_favorite_input = document.getElementById('spread_favorite_input').value;
+        var favorite_team_input = document.getElementById('favorite_team_input').value;
+        var underdog_input = document.getElementById('underdog_input').value;
+        var is_team_favorite_home = document.getElementById('is_team_favorite_home').value.toLowerCase() === 'yes';
+
+        // Create data object
+        var data = {
+            spread_favorite_input: spread_favorite_input,
+            favorite_team_input: favorite_team_input,
+            underdog_input: underdog_input,
+            is_team_favorite_home: is_team_favorite_home
+        };
+
+        // Send POST request
+        fetch('/run_spread', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display the output
+            document.getElementById('spreadOutput').textContent = data.output;
+            // Display the output in an alert box
+            alert(data.output);
+        });
+    });
+    </script>
+
+    <script>
+        function populateTable(tableId, data) {
+            const table = document.getElementById(tableId);
+            const tbody = table.querySelector('tbody');
+
+            // Clear existing rows
+            tbody.innerHTML = '';
+
+            // Populate the table with data
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                Object.values(item).forEach(value => {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                tbody.appendChild(row);
+            });
+        }
+
+        function fetchPlayerMetrics() {
+            fetch('/get_player_metrics')
+                .then(response => response.json())
+                .then(data => populateTable('playerTable', data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        window.onload = fetchPlayerMetrics;
+    </script>
+    <script>
+
+document.getElementById('runOverUnderButton').addEventListener('click', function() {
+    // Get form data
+    var home_team = document.getElementById('home_team').value;
+    var your_single_number = document.getElementById('your_single_number').value;
+
+    // Create data object
+    var data = {
+        home_team: home_team,
+        your_single_number: your_single_number
+    };
+
+    // Send POST request
+    fetch('/run_over_under', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Display the output
+        document.getElementById('overUnderOutput').textContent = data.output;
+    })
+    .catch(error => console.error('Error:', error));
+});
+    </script>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        // Call the function to populate the Team Stats, User Profile, Player Metrics, User Bets and Live Events tables when the page loads
+        window.onload = function() {
+    populateTable('teamStatsTable', teamStatsData);
+    populateTable('userProfileTable', userProfileData);
+    populateTable('playerMetricsTable', playerMetricsData);
+    populateTable('userBetsTable', userBetsData);
+    populateTable('liveEventsTable', liveEventsData);
+    populatePlayerMetricsTable();
+        };
+    </script>
+</body>
+
+</html>

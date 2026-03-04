@@ -1,0 +1,27 @@
+{
+  "rewrites": [
+    { "source": "/api/stripe-webhook", "destination": "/api/stripe-webhook" },
+    { "source": "/api/activate-license", "destination": "/api/activate-license" },
+    { "source": "/api/get-license", "destination": "/api/get-license" },
+    { "source": "/api/create-checkout-session", "destination": "/api/create-checkout-session" },
+    { "source": "/api/verify-payment", "destination": "/api/verify-payment" }
+  ],
+  "headers": [
+    {
+      "source": "/api/activate-license",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    },
+    {
+      "source": "/api/get-license",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ]
+}

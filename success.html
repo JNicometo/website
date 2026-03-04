@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - OwnInvoice</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .license-box {
+      background: rgba(200, 169, 110, 0.08);
+      border: 2px solid rgba(200, 169, 110, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      position: relative;
+    }
+    .license-key {
+      font-family: 'Courier New', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #c8a96e;
+      letter-spacing: 2px;
+      word-break: break-all;
+      user-select: all;
+    }
+    .copy-btn {
+      margin-top: 12px;
+      padding: 8px 20px;
+      background: #c8a96e;
+      color: #0a0f1e;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .copy-btn:hover { opacity: 0.85; }
+    .copy-btn.copied {
+      background: #10B981;
+      color: #fff;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #c8a96e;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 24px auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-state { color: #EF4444; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 24px;">
+    <div style="text-align: center; max-width: 560px;">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 style="font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 16px;">Thank You for Your Purchase!</h1>
+
+      <!-- Loading State -->
+      <div id="loadingState">
+        <p style="font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 8px;">
+          Generating your license key...
+        </p>
+        <div class="loading-spinner"></div>
+      </div>
+
+      <!-- License Key Display -->
+      <div id="licenseState" class="hidden">
+        <p style="font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 8px;">
+          Your license key is ready. Copy it and enter it when you launch OwnInvoice.
+        </p>
+        <div class="license-box">
+          <div class="license-key" id="licenseKey"></div>
+          <button class="copy-btn" id="copyBtn" onclick="copyLicense()">Copy License Key</button>
+        </div>
+        <p id="emailNote" style="font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 24px;"></p>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="hidden">
+        <p class="error-state" style="font-size: 17px; line-height: 1.7; margin-bottom: 24px;">
+          We couldn't retrieve your license key right now. Don't worry — your payment was successful.
+          Please contact <a href="mailto:jnicometo@gritsoftware.dev" style="color: #c8a96e;">jnicometo@gritsoftware.dev</a> and we'll send your key manually.
+        </p>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 16px;">What's Next?</h3>
+        <div style="text-align: left; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #c8a96e; font-weight: 700; font-size: 15px;">1.</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 15px;">Copy your license key above</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #c8a96e; font-weight: 700; font-size: 15px;">2.</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 15px;">Download and install OwnInvoice Desktop</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #c8a96e; font-weight: 700; font-size: 15px;">3.</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 15px;">Enter your license key on the activation screen</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <span style="color: #c8a96e; font-weight: 700; font-size: 15px;">4.</span>
+            <span style="color: rgba(255,255,255,0.7); font-size: 15px;">Start creating professional invoices!</span>
+          </div>
+        </div>
+      </div>
+      <a href="index.html" class="btn btn-primary btn-lg" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #c8a96e; color: #0a0f1e; font-weight: 700; border-radius: 12px; text-decoration: none; font-size: 16px;">
+        Back to Home
+      </a>
+      <p style="margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.35);">
+        Need help? Contact us at <a href="mailto:jnicometo@gritsoftware.dev" style="color: rgba(255,255,255,0.5);">jnicometo@gritsoftware.dev</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let licenseKeyValue = '';
+
+    function copyLicense() {
+      if (!licenseKeyValue) return;
+      navigator.clipboard.writeText(licenseKeyValue).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy License Key';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    async function fetchLicense(sessionId, attempt = 0) {
+      const maxAttempts = 10;
+      try {
+        const res = await fetch(`/api/get-license?session_id=${encodeURIComponent(sessionId)}`);
+        const data = await res.json();
+
+        if (res.ok && data.licenseKey) {
+          licenseKeyValue = data.licenseKey;
+          document.getElementById('licenseKey').textContent = data.licenseKey;
+          if (data.email) {
+            document.getElementById('emailNote').textContent = `A copy has also been associated with ${data.email}`;
+          }
+          document.getElementById('loadingState').classList.add('hidden');
+          document.getElementById('licenseState').classList.remove('hidden');
+          return;
+        }
+
+        if (attempt < maxAttempts - 1) {
+          setTimeout(() => fetchLicense(sessionId, attempt + 1), 2000);
+        } else {
+          showError();
+        }
+      } catch (err) {
+        if (attempt < maxAttempts - 1) {
+          setTimeout(() => fetchLicense(sessionId, attempt + 1), 2000);
+        } else {
+          showError();
+        }
+      }
+    }
+
+    function showError() {
+      document.getElementById('loadingState').classList.add('hidden');
+      document.getElementById('errorState').classList.remove('hidden');
+    }
+
+    // On page load
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+
+    if (sessionId) {
+      fetchLicense(sessionId);
+    } else {
+      document.getElementById('loadingState').classList.add('hidden');
+      document.getElementById('licenseState').classList.remove('hidden');
+      document.getElementById('licenseKey').textContent = 'No session found';
+    }
+  </script>
+</body>
+</html>

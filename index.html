@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OwnInvoice by Grit Software - Professional Invoicing Software That Works Offline</title>
+  <meta name="description" content="Complete desktop invoicing for small businesses. No subscriptions. No cloud. Your data stays yours. One-time purchase, professional invoicing forever.">
+  <link rel="icon" type="image/png" href="Logo.png">
+  <link rel="apple-touch-icon" href="Logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sale Banner -->
+  <div class="sale-banner" id="saleBanner">
+    <div class="sale-banner-inner">
+      <span class="sale-fire">&#128293;</span>
+      <span class="sale-text">
+        <strong>Launch Special:</strong> $199 <span class="sale-strikethrough">$249</span> &mdash; Save $50!
+      </span>
+      <span class="sale-badge">Limited Time</span>
+      <span class="sale-fire">&#128293;</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark" id="logoPlaceholder">
+          <img src="Logo.png" alt="Grit Software Logo" class="nav-logo-img">
+          <span>OwnInvoice</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#included">What's Included</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download" class="nav-cta">Download Now</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-launch-badge">
+          <span class="pulse-dot"></span>
+          Launching March 1, 2026
+        </div>
+        <h1>Professional Invoicing<br><span class="gradient-text">That Works Offline</span></h1>
+        <p class="hero-subtitle">
+          Complete desktop invoicing for small businesses. No subscriptions. No cloud.
+          Your data stays yours. <strong>Now $199 (Launch Special)</strong>
+        </p>
+        <div class="hero-actions">
+          <button onclick="checkout()" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Buy Now - $199
+          </button>
+          <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            One-time purchase
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            No monthly fees
+          </div>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            100% offline
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="OwnInvoice_Banner-B_v2.png" alt="OwnInvoice by Grit Software" class="hero-banner-img">
+        <div class="hero-screenshot-frame">
+          <div class="screenshot-bar">
+            <span class="dot r"></span>
+            <span class="dot y"></span>
+            <span class="dot g"></span>
+          </div>
+          <img src="dash.png" alt="OwnInvoice Dashboard" style="width:100%; display:block; border-radius: 0 0 12px 12px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Features</span>
+        <h2>Everything You Need to Get Paid Faster</h2>
+        <p>Professional invoicing tools designed for freelancers, contractors, and small businesses</p>
+      </div>
+      <div class="features-grid stagger-children">
+        <div class="feature-card reveal">
+          <div class="feature-icon blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Professional Invoices</h3>
+          <p>Create beautiful, branded invoices with customizable templates, your logo, and company details.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3>Payment Integration</h3>
+          <p>Accept payments via Stripe, PayPal, Square, GoCardless, and Authorize.Net directly from invoices.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Client Management</h3>
+          <p>Unlimited clients with contact details, multiple shipping addresses, credit limits, and payment history.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon orange">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Reports & Analytics</h3>
+          <p>Revenue tracking, outstanding balances, payment trends, and client analytics at a glance.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon red">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <h3>Smart Reminders</h3>
+          <p>Automated email reminders for overdue invoices. Set it once and never chase payments manually again.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon teal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+          </div>
+          <h3>Recurring Billing</h3>
+          <p>Automate monthly, quarterly, or annual invoices. Set up once and let OwnInvoice handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="included" id="included">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What's Included</span>
+        <h2>Everything Included. No Hidden Costs.</h2>
+        <p>One purchase gives you the complete professional invoicing toolkit</p>
+      </div>
+      <div class="included-grid stagger-children">
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Full Desktop Application</strong>
+            <span>No browser required. Runs natively on Windows and macOS.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Unlimited Invoices & Quotes</strong>
+            <span>No artificial limits. Create as many as you need, forever.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Payment Gateway Integration</strong>
+            <span>Stripe, PayPal, Square, GoCardless, and Authorize.Net built in.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Email Reminders</strong>
+            <span>Automated follow-ups for overdue invoices. Stop chasing payments.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Recurring Billing</strong>
+            <span>Set and forget monthly, quarterly, or annual invoices.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Client Management</strong>
+            <span>Unlimited clients with multiple shipping addresses and credit tracking.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Reports & Analytics</strong>
+            <span>Revenue tracking, outstanding balances, and payment trends.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Offline Access</strong>
+            <span>Works without internet. Your data stays local and private.</span>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <strong>Free Lifetime Updates</strong>
+            <span>Monthly bug fixes and feature updates included for life.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="screenshots" id="screenshots">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Preview</span>
+        <h2>See OwnInvoice in Action</h2>
+        <p>A clean, intuitive interface that gets out of your way</p>
+      </div>
+      <div class="screenshots-tabs-wrap">
+        <div class="screenshots-tabs">
+          <button class="screenshot-tab active" data-tab="dashboard">Dashboard</button>
+          <button class="screenshot-tab" data-tab="reports">Reports & Analytics</button>
+          <button class="screenshot-tab" data-tab="clients">Clients</button>
+          <button class="screenshot-tab" data-tab="items">Saved Items</button>
+        </div>
+      </div>
+      <div class="screenshot-display">
+        <div class="screenshot-frame">
+          <div class="screenshot-frame-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="screenshot-image" id="screenshotImage">
+            <img src="dash.png" alt="OwnInvoice Dashboard" id="screenshotImg" style="width:100%; display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Pricing</span>
+        <h2>Simple, Honest Pricing</h2>
+        <p>One price. Everything included. No surprises.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-badge">Launch Special - Save $50</div>
+        <div class="pricing-header">
+          <h3>OwnInvoice Desktop</h3>
+          <p class="pricing-desc">Complete professional invoicing solution</p>
+        </div>
+        <div class="pricing-price">
+          <span class="price-old">$249</span>
+          <span class="price-current">$199</span>
+          <span class="price-period">one-time purchase</span>
+        </div>
+        <div class="pricing-note">No monthly fees. No annual subscriptions. Pay once, use forever.</div>
+        <ul class="pricing-features">
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Unlimited invoices, quotes & clients
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            5 payment gateways included
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Automated email reminders
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Recurring billing automation
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Reports & analytics dashboard
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Free updates for life
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Works offline &mdash; your data stays private
+          </li>
+        </ul>
+        <button onclick="checkout()" class="btn btn-primary btn-lg btn-full">Get OwnInvoice for $199</button>
+        <p class="pricing-guarantee">30-day money-back guarantee. No questions asked.</p>
+      </div>
+
+      <div class="comparison">
+        <h3>Stop Paying Monthly for Invoicing</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item competitor">
+            <span class="comparison-name">Typical SaaS Invoicing</span>
+            <span class="comparison-price">$15-30/mo</span>
+            <span class="comparison-annual">$180-360/year</span>
+          </div>
+          <div class="comparison-item ours">
+            <span class="comparison-name">OwnInvoice Desktop</span>
+            <span class="comparison-price">$199 once</span>
+            <span class="comparison-annual">Pays for itself in 8 months</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updates & Support -->
+  <section class="updates" id="updates">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Support</span>
+        <h2>Active Development. Real Support.</h2>
+        <p>We're building OwnInvoice for the long haul</p>
+      </div>
+      <div class="updates-grid stagger-children">
+        <div class="update-card reveal">
+          <div class="update-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h3>Monthly Bug Fixes</h3>
+          <p>We actively maintain and improve OwnInvoice. Bugs get squashed fast.</p>
+        </div>
+        <div class="update-card reveal">
+          <div class="update-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Feature Updates</h3>
+          <p>New features added regularly. Free for life with your purchase.</p>
+        </div>
+        <div class="update-card reveal">
+          <div class="update-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Community Feedback</h3>
+          <p>Your suggestions shape our roadmap. We build what you actually need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about OwnInvoice</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What platforms does OwnInvoice run on?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>OwnInvoice Desktop runs natively on Windows (10 and above) and macOS (10.15+). It's a full desktop application, not a web app, so it runs fast and works completely offline.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need an internet connection?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No! OwnInvoice works completely offline. You only need internet to send emails (reminders) or process online payments. All your data is stored locally on your computer.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is my data safe? Where is it stored?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Your data stays on your computer. We never upload, collect, or access your business data. You own it completely. OwnInvoice also includes backup and restore functionality so you can easily protect your data.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Are updates really free forever?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! All updates are free for life. Bug fixes, new features, and improvements are included with your one-time purchase. No renewal fees, no expiration.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How often do you release updates?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Monthly bug fixes and quarterly feature updates. All included free for life. We're committed to making OwnInvoice better with every release.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is the launch price available forever?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No, this is a limited-time offer for early adopters. The price will increase to $249 after the launch period. Lock in the $199 price while it lasts.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What payment methods do you accept?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We accept all major credit cards, PayPal, and Apple Pay through our secure checkout. Your payment information is never stored on our servers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="download" id="download">
+    <div class="container">
+      <div class="download-card">
+        <h2>Ready to Take Control of Your Invoicing?</h2>
+        <p>Join small businesses who are done with monthly invoicing fees. Download OwnInvoice and start creating professional invoices in minutes.</p>
+        <div class="download-price">
+          <span class="price-old">$249</span>
+          <span class="price-current">$199</span>
+          <span class="price-label">Launch Special</span>
+        </div>
+        <div class="download-buttons">
+          <button onclick="checkout()" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Buy for Windows - $199
+          </button>
+          <button onclick="checkout()" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+            Buy for macOS - $199
+          </button>
+        </div>
+        <p class="download-note">30-day money-back guarantee. No questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="banner.png" alt="Grit Software" class="footer-banner-img">
+          <p>Professional invoicing software for small businesses. Built to work offline. Designed to get you paid faster.</p>
+          <a href="https://gritsoftware.dev" class="footer-domain">gritsoftware.dev</a>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#download">Download</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <a href="#">Documentation</a>
+          <a href="#">Release Notes</a>
+        </div>
+        <div class="footer-links">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Grit Software. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

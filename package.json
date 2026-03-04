@@ -1,0 +1,9 @@
+{
+  "name": "owninvoice-website",
+  "version": "1.0.0",
+  "description": "OwnInvoice by Grit Software - Marketing Website",
+  "dependencies": {
+    "stripe": "^14.14.0",
+    "@vercel/kv": "^2.0.0"
+  }
+}
